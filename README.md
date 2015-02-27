@@ -1,0 +1,3 @@
+# License:
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">PVA_RP_2015</span>, jehož autory jsou <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Jakub Vítek, David Kříž</span>, podléhá licenci <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Uveďte autora-Neužívejte komerčně-Nezpracovávejte 4.0 Mezinárodní </a>.

@@ -1,0 +1,281 @@
+/* Hlavní CSS soubor */
+
+body
+{
+  background-image: url("images/background.png");
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  color: #FFFFFF;
+}
+
+#page
+{
+  height: 100vh;
+  overflow: auto;
+}
+
+#main
+{
+  width: 1000px;
+  height: auto;
+  margin-top: 10px !important;
+  margin: auto;
+  min-height: 660px;
+}
+
+#menu
+{
+  width: 1000px;
+  height: 50px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.3);
+}
+
+#menu a
+{
+  display: inline-block;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+  height: 30px;
+  min-width: 90px;
+  margin-top: 10px;
+  
+}
+
+#menu a:hover
+{
+  background-color: rgba(0,0,0,0.3); 
+}
+
+#content
+{
+  float: left;
+  width: 600px;
+  min-height: 600px;
+  height: auto;
+  background-color: rgba(0,0,0,0.1);
+}
+
+#bodydiv
+{
+  width: 1000px;
+  min-height: 600px;
+  height: auto;
+  overflow: auto;
+}
+
+#footer
+{
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 1000px;
+  height: 30px;
+  float: left;
+  line-height: 30px;
+}
+
+.informationdiv
+{
+  background-color: rgba(0, 0, 0, 0.1);
+  min-height: 600px;
+  width: 200px;
+  height: 100%;
+  float: left;
+  word-wrap: break-word;
+}
+
+.error
+{
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+  color: red;
+}
+
+/* ################# DAVVVE ############### */
+
+#content .inputedit 
+{
+	color: white;
+	background-color: transparent;
+	border: 2px solid rgba(0,0,0,0.2);
+	margin-top: 3px;
+	float: right;
+	height: 24px;
+	width: 200px;
+}
+
+#content #registerbutton
+{
+	width: 340px;
+	border: none;
+	height: 30px;
+	background-color: rgba(0,0,0,0.2);
+	color: white;
+  margin-top: 3px;
+}
+
+#content #registerbutton:hover
+{
+  margin-top: 3px;
+	transition: all 200ms;
+	background-color: rgba(0,0,0,0.3);
+}
+
+#content .inputdiv
+{
+  float: right;
+  width: 210px;
+}
+
+#content .registertextdiv
+{
+  float: left;
+  line-height: 2.1;
+}
+
+#content .registerdiv
+{
+  width: 340px;
+  height: 135px;
+}
+
+#content #loginbutton
+{
+	width: 340px;
+	border: none;
+	height: 30px;
+	background-color: rgba(0,0,0,0.2);
+	color: white;
+  margin-top: 3px;
+}
+
+#content #loginbutton:hover
+{
+  margin-top: 3px;
+	transition: all 200ms;
+	background-color: rgba(0,0,0,0.3);
+}
+
+#content .inputdiv
+{
+  float: right;
+  width: 210px;
+}
+
+#content .logintextdiv
+{
+  float: left;
+  line-height: 2.1;
+}
+
+#content .logindiv
+{
+  width: 340px;
+  height: 70px;
+}
+
+#content .contactstable
+{
+  border: 0px solid rgba(0,0,0,0.3);
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#content .contactstr
+{
+  height: 30px;
+}
+
+#content .contactstd
+{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .screenshotsdiv
+{
+  text-align: center;
+  width: 400px;
+  height: 100px;
+}
+
+#content .screenshotsimg
+{
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+#content .expeditiondescription
+{
+  overflow: hidden;
+  margin-top: 5px;
+  width: 184px;
+  height: 55px;
+  background-color: rgba(0, 0, 0, 0.1);
+  float: left;
+  word-wrap: break-word;
+  padding: 4px;             
+}
+
+#content .expeditionimg
+{
+  width: 100%;
+  height: 186px;
+  background-color: rgba(0, 0, 0, 0.1);
+  float: left;              
+}
+
+#content .expeditiontypetopdiv
+{
+  width: 192px;
+  height: 294px;             
+}
+
+#content .expeditiontypediv
+{
+  margin-top: 5px;
+  width: 192px;
+  height: 294px;             
+}
+
+#content .expeditioncolumndiv
+{
+  width: 192px;
+  height: 592px;
+  margin: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  float: left;             
+}
+
+#content .expeditionselect
+{
+  display: inline-block;  
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+  height: 30px;  
+  width: 100%;  
+  margin-top: 5px;
+  text-align: center;
+}
+
+#content .expeditionselect:hover
+{
+  display: inline-block;  
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+  height: 30px;  
+  width: 100%;  
+  margin-top: 5px;
+  text-align: center;
+}
