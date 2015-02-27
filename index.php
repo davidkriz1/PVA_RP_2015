@@ -8,6 +8,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <link type="text/css" href="css/default.css" rel="stylesheet">
   <link type="text/css" href="css/aligner.css" rel="stylesheet">
+  <script src="libs/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+  <script src="libs/js/jquery-ui.min.js" type="text/javascript"></script>
   <title></title>
   </head>
   <body>
