@@ -9,5 +9,5 @@
       <input type="password" class="inputedit" name="LoginPassword" placeholder="Password">
     </div>
   </div>          
-  <input type="submit" name="login" id="registerbutton" class="submit" value="Přihlásit">
+  <input type="submit" name="login" id="loginbutton" class="submit" value="Přihlásit">
 </form>
