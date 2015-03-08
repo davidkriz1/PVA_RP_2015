@@ -279,3 +279,108 @@ body
   margin-top: 5px;
   text-align: center;
 }
+
+#content .homeplayersummarydiv
+{
+  margin: 5px;
+  float: left;
+  width: 250px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .homeplayeravatar
+{
+  margin: 5px;
+  float: left;
+  width: 240px;
+  height: 225px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .homespelldiv
+{
+  margin: 0px 5px 5px 5px;
+  float: left;
+  width: 240px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .homestatsdiv
+{
+  text-align: start;
+  font-size: 17px;
+  margin: 0px 5px 5px 5px;
+  float: left;
+  width: 240px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .attackdefenddiv
+{
+  margin: 0px 5px 5px 5px;
+  float: left;
+  width: 240px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+#content .attack
+{
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 115px;
+  height: 30px;
+  float: left;
+  line-height: 30px;
+}
+
+#content .defend
+{
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  line-height: 30px;
+  float: right;
+  width: 115px;
+  height: 30px;
+}
+
+#content .trainingbutton
+{
+  float: left;
+  background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/up.png);
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+#content .trainingbutton:hover
+{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/up_hover.png);
+}
+
+/* ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### */
+
+#content .test2
+{
+  float: left;
+  background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/down.png);
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+#content .test2:hover
+{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/down_hover.png);
+}
+
+/* ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### */

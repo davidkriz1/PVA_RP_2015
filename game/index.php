@@ -14,7 +14,7 @@
     <div id="page">
       <div id="main">
         <div id="menu">
-          <a href="index.php">Domů</a>
+          <a href="index.php?page=home">Domů</a>
           <a href="index.php?page=training">Cvičiště</a>
           <a href="index.php?page=trader">Obchodník</a>
           <a href="index.php?page=clan">Klan</a>
