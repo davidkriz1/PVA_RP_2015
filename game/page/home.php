@@ -1,22 +1,22 @@
 <div class="homeplayersummarydiv">
   <div class="homeplayeravatar"></div>
-  <div class="spelldiv">
-    <div class="test1"></div>
+  <div class="homespelldiv">
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
-    <div class="test1"></div>
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
-    <div class="test1"></div>
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
-    <div class="test1"></div>
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
     <div class="test2"></div>
-    <div class="test1"></div>
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
-    <div class="test1"></div>
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
-    <div class="test1"></div>
+    <div class="trainingbutton"></div>
     <div class="test2"></div>
-    <div class="test1"></div> 
+    <div class="trainingbutton"></div> 
   </div>
 
   <div class="attackdefenddiv">
