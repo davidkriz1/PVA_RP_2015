@@ -91,8 +91,17 @@ if(isset($_POST["pocitat"]))
 		$$k = htmlspecialchars($v);
 	}
 
+$string = $Pzbran;
+$arr = explode('-', $string);
+$Pzbran = rand((int)$arr[0],(int)$arr[1]);
 
+$string = $Ezbran;
+$arr = explode('-', $string);
+$Ezbran = rand((int)$arr[0],(int)$arr[1]);
 
+unset($string);
+unset($arr);
+ 
 
 
 $Pzivoty = ($Plevel * 15) + 50;
