@@ -349,19 +349,24 @@ body
 
 #content .trainingbutton
 {
+  margin: 10px;
   float: left;
   background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/up.png);
   height: 30px;
   width: 30px;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 #content .trainingbutton:hover
 {
+  margin: 10px;
+  float: left;
   cursor: pointer;
   width: 30px;
   height: 30px;
   background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/up_hover.png);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### */
@@ -384,3 +389,96 @@ body
 }
 
 /* ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### */
+
+#content .trainingheaddiv
+{
+  width: 100%;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .trainingdiv
+{
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+
+#content .trainingtypediv
+{
+  width: 400px;
+  height: 50px;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.1);
+  line-height: 50px;
+  text-align: center;
+}
+
+#content .trainingstatupdiv
+{
+  width: 150px;
+  height: 50px;
+  float: left;
+  line-height: 50px;
+}
+
+#content .trainingtypetitlediv
+{
+  text-align: start;
+  height: 20px;
+  float: left;    
+  width: 340px;
+  margin: 0px 0px 0px 10px;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+#content .trainingtypedescriptiondiv
+{
+  line-height: 2;
+  margin: 0px 0px 0px 10px;    
+  width: 340px;    
+  height: 30px;
+  float: left;
+  text-align: start;
+}
+
+#content .currencydiv
+{
+  line-height: 45px;
+  height: 40px;    
+  width: 200px;    
+  float: right;    
+  color: gold;
+  text-align: start;    
+  margin: 5px 0px 5px 0px;
+}
+
+#content .currencyimagediv
+{
+  margin: 1px 10px 0px 0px;    
+  width: 50px;
+  float: left;    
+  height: 40px;
+}
+
+#content .currencyimage
+{
+  width: 50px;    
+  height: 40px;
+}
+
+#content .goldcurrencyvaluespan
+{
+  line-height: 45px;
+  color: gold;
+}
+
+#content .trainingtypedescdiv
+{
+  float: left;
+  width: 350px;
+  height: 50px;
+}
