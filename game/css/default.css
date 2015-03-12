@@ -285,7 +285,7 @@ body
   margin: 5px;
   float: left;
   width: 250px;
-  height: 400px;
+  height: 465px;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -296,6 +296,24 @@ body
   width: 240px;
   height: 225px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .homebardiv
+{
+  margin: 0px 5px 5px 5px;
+  float: left;
+  width: 240px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .homebarimg
+{
+  margin: 10px 20px 0px 20px;
+  float: left;
+  width: 200px;
+  -webkit-user-select: none;
+  height: 15px;
 }
 
 #content .homespelldiv
