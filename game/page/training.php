@@ -19,7 +19,9 @@
         </span>
     </div>
   </div>
-  <div title="Trénovat" class="trainingbutton"></div>
+  <div class="trainingbuttondiv">
+    <div title="Trénovat" class="trainingbutton"></div>
+  </div>
 </div>
 <div class="trainingdiv">
   <div class="trainingtypediv">
@@ -40,7 +42,9 @@
         </span>
     </div>
   </div>
-  <div title="Trénovat" class="trainingbutton"></div>
+  <div class="trainingbuttondiv">
+    <div title="Trénovat" class="trainingbutton"></div>
+  </div>
 </div>
 <div class="trainingdiv">
   <div class="trainingtypediv">
@@ -61,5 +65,7 @@
         </span>
     </div>
   </div>
-  <div title="Trénovat" class="trainingbutton"></div>
+  <div class="trainingbuttondiv">
+    <div title="Trénovat" class="trainingbutton"></div>
+  </div>
 </div>
