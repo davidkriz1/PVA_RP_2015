@@ -80,7 +80,7 @@ else
 imagefilledrectangle($img, 0, 0, $width, $height, ${$prefix."_bgc"});
 imagefilledrectangle($img, 0, 0, $x * $point, $height, ${$prefix."_fgc"});
 //imagestring($img, 2, 45 * $point, 1, sprintf("%.02d%%", $x), ${$prefix."_tc"});
-imagestring($img, 2, 40 * $point, 1, sprintf("%d/%d", $a, $b), ${$prefix."_tc"});
+imagestring($img, 2, 40 * $point, 1, sprintf("%d/%d HP", $a, $b), ${$prefix."_tc"});
 imagepng($img);
 imagedestroy($img);
 
