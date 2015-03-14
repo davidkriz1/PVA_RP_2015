@@ -65,34 +65,30 @@ if(isset($_POST["register"]))
 
 if (isset($_POST['login']))
 {
-	if ((!isset($_POST['Login']) || empty($_POST['Login'])) || (!isset($_POST['LoginPassword']) || empty($_POST['LoginPassword'])))
+	if ((!isset($_POST["LoginName"]) || empty($_POST["LoginName"])) || (!isset($_POST["LoginPassword"]) || empty($_POST["LoginPassword"])))
 	{
-		$error = "Nebyla vyplněna všechna data!!";
+		$e = "Nebyla vyplněna všechna data!!";
 		}
 	else
-	{
-		$data = mysqli_query($link, "SELECT * FROM game_users WHERE nick='".$_POST["Login"]."'");
-		$assoc = mysqli_fetch_assoc($data);
-
-		if  ($assoc["nick"]=="")
+	{ 
+    
+    if  (!db::isPlayerRegistered($link ,$_POST["LoginName"]))
 		{
 			$e = "Tento uživatel neexistuje!!";
 		}
 		else
 		{
-			if  (sha1($_POST["LoginPassword"]) != $assoc["password"])
+      $assoc = db::getPlayer($link, $_POST["LoginName"]);
+      
+			if  (sha1($_POST["LoginPassword"]) != $assoc["password"] || !$assoc )
 			{
 				$e = "Heslo není správné!!";
 			}
 			else
 			{
-				$nick = $_POST["Login"];
 				$_SESSION["id"] = $assoc["id"];
-				$email = $assoc["email"];
-				$isadmin = $assoc["isadmin"];
 				$lastvisit = $_SERVER["REQUEST_TIME"];
-				echo "<meta http-equiv='refresh' content='0';URL='http://home.spsostrov.cz/~krizda/Game/game/index.php?page=home'>";
-				echo("Byl jsi přihlášen jako " . $nick . " ID:" . $_SESSION['id']);
+        echo("<script>window.location = 'game/index.php';</script>");
 			}
 		}		     
 	}  
@@ -109,7 +105,7 @@ function delSession($link)
 	if(!empty($_SESSION))
 	{      
 		$_SESSION = array();
-		echo "<meta http-equiv='refresh' content='0';URL='http://home.spsostrov.cz/~krizda/Game/index.php'>";
+		echo "<meta http-equiv='refresh' content='0';URL='../index.php'>";
 	}
 }
 ?>
