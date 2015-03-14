@@ -65,13 +65,13 @@ if(isset($_POST["register"]))
 
 if (isset($_POST['login']))
 {
-	if ((!isset($_POST['Login']) || empty($_POST['Login'])) || (!isset($_POST['LoginPassword']) || empty($_POST['LoginPassword'])))
+	if ((!isset($_POST['LoginName']) || empty($_POST['LoginName'])) || (!isset($_POST['LoginPassword']) || empty($_POST['LoginPassword'])))
 	{
 		$error = "Nebyla vyplněna všechna data!!";
 		}
 	else
 	{
-		$data = mysqli_query($link, "SELECT * FROM game_users WHERE nick='".$_POST["Login"]."'");
+		$data = mysqli_query($link, "SELECT * FROM game_users WHERE nick='".$_POST["LoginName"]."'");
 		$assoc = mysqli_fetch_assoc($data);
 
 		if  ($assoc["nick"]=="")
@@ -86,12 +86,12 @@ if (isset($_POST['login']))
 			}
 			else
 			{
-				$nick = $_POST["Login"];
+				$nick = $_POST["LoginName"];
 				$_SESSION["id"] = $assoc["id"];
 				$email = $assoc["email"];
 				$isadmin = $assoc["isadmin"];
 				$lastvisit = $_SERVER["REQUEST_TIME"];
-				echo "<meta http-equiv='refresh' content='0';URL='http://home.spsostrov.cz/~krizda/Game/game/index.php?page=home'>";
+				echo "<meta http-equiv='refresh' content='0';URL='/game/index.php?page=home'>";
 				echo("Byl jsi přihlášen jako " . $nick . " ID:" . $_SESSION['id']);
 			}
 		}		     
