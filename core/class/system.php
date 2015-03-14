@@ -30,6 +30,11 @@ Class System
 	 }
 	 return FALSE; 
   }
+  
+  public static function forceRedirect()
+  {
+    echo("<script>window.location = '..';</script>");
+  }
 
 }
 ?>
