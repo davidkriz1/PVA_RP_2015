@@ -287,7 +287,7 @@ body
   margin: 5px;
   float: left;
   width: 250px;
-  height: 465px;
+  height: 490px;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -298,6 +298,17 @@ body
   width: 240px;
   height: 225px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content .homeplayername
+{
+  width: 240px;
+  height: 20px;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0px 5px 5px;
+  line-height: 20px;
 }
 
 #content .homebardiv
