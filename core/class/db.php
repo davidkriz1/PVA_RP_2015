@@ -58,6 +58,11 @@ Class db
   }
   return false;
   }
+  
+  public static function updateLastvisit($link, $id)
+  {
+    return false;
+  }
 
 }
 ?>

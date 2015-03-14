@@ -1,4 +1,4 @@
-op<?php
+<?php
 ob_start();
 session_start();
 session_save_path("\tmp");
@@ -65,51 +65,35 @@ if(isset($_POST["register"]))
 
 if (isset($_POST['login']))
 {
-<<<<<<< HEAD
+  foreach($_POST as $k=>$v)
+  {
+    $_POST[$k] = system::osetri($v);
+  }
+  
 	if ((!isset($_POST["LoginName"]) || empty($_POST["LoginName"])) || (!isset($_POST["LoginPassword"]) || empty($_POST["LoginPassword"])))
-=======
-	if ((!isset($_POST['LoginName']) || empty($_POST['LoginName'])) || (!isset($_POST['LoginPassword']) || empty($_POST['LoginPassword'])))
->>>>>>> origin/master
 	{
 		$e = "Nebyla vyplněna všechna data!!";
-		}
+	}
 	else
-<<<<<<< HEAD
 	{ 
-    
     if  (!db::isPlayerRegistered($link ,$_POST["LoginName"]))
-=======
-	{
-		$data = mysqli_query($link, "SELECT * FROM game_users WHERE nick='".$_POST["LoginName"]."'");
-		$assoc = mysqli_fetch_assoc($data);
-
-		if  ($assoc["nick"]=="")
->>>>>>> origin/master
-		{
+    {
 			$e = "Tento uživatel neexistuje!!";
 		}
 		else
 		{
       $assoc = db::getPlayer($link, $_POST["LoginName"]);
       
-			if  (sha1($_POST["LoginPassword"]) != $assoc["password"] || !$assoc )
-			{
+      if(sha1($_POST["LoginPassword"]) != $assoc["password"] || !$assoc )
+      { 
 				$e = "Heslo není správné!!";
-			}
-			else
-			{
-<<<<<<< HEAD
-=======
+      }
+      else
+      {
 				$nick = $_POST["LoginName"];
->>>>>>> origin/master
 				$_SESSION["id"] = $assoc["id"];
-				$lastvisit = $_SERVER["REQUEST_TIME"];
-<<<<<<< HEAD
+				$_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
         echo("<script>window.location = 'game/index.php';</script>");
-=======
-				echo "<meta http-equiv='refresh' content='0';URL='/game/index.php?page=home'>";
-				echo("Byl jsi přihlášen jako " . $nick . " ID:" . $_SESSION['id']);
->>>>>>> origin/master
 			}
 		}		     
 	}  
@@ -129,4 +113,31 @@ function delSession($link)
 		echo "<meta http-equiv='refresh' content='0';URL='../index.php'>";
 	}
 }
+
+// Odhlášení při neaktivitě
+ if(empty($_SESSION["id"]))
+  {
+    $_SESSION = array();
+    session_destroy();
+  }
+  else
+  {
+    if($_SESSION["lastvisit"] + 7200 <= time())
+    {
+      delSession();
+    }
+    else
+    {
+      if($_SESSION["lastvisit"] + 3* 300 <= time())
+      {
+        delSession();
+      }
+      else
+      {
+        $_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
+        mysqli_query($link, "UPDATE uzivatele SET lastvisit = '" . time() . "' WHERE id = " . $_SESSION['id'] . "");
+      }
+    }
+  }
+
 ?>
