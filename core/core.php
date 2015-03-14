@@ -105,12 +105,12 @@ if (isset($_POST['logout']))
 } 
 
   // Okamžité odhlášení
-function delSession($link)
+function delSession()
 {
 	if(!empty($_SESSION))
 	{      
 		$_SESSION = array();
-		echo "<meta http-equiv='refresh' content='0';URL='../index.php'>";
+		echo("<script>window.location = '../index.php';</script>");
 	}
 }
 

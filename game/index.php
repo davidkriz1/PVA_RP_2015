@@ -22,13 +22,19 @@
           <a href="index.php?page=halloffame">Síň slávy</a>
           <a href="index.php?page=work">Práce</a>         
           <a href="index.php?page=expedition">Výprava</a>
-          <a href="#">Odhlásit</a>
+          <a href="index.php?action=logout">Odhlásit</a>
         </div>
         <div id="bodydiv">
           <div class="informationdiv"></div>
           <div id="content">
             <?php
-            $page = empty($_GET["page"]) || !isset($_GET["page"]) ? "home" : system::osetri_get($_GET["page"]);  
+            $page = empty($_GET["page"]) || !isset($_GET["page"]) ? "home" : system::osetri_get($_GET["page"]);
+            $action = isset($_GET["action"]) && !empty($_GET["action"]) ? system::osetri_get($_GET["action"]) : "";
+            
+            if($action != "" && $action == "logout")
+            {
+              delSession();
+            }  
             
             if(file_exists("page/".$page.".php"))
             {
