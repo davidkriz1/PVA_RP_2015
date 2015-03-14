@@ -34,6 +34,30 @@ Class db
   }
   
   }
+  
+  public static function getPlayer($link, $name)
+  {
+	 if($ps = mysqli_prepare($link, 'SELECT * FROM game_users WHERE nick = ?'))
+	 {
+		mysqli_stmt_bind_param($ps, 's', $name);
+		mysqli_stmt_execute($ps);
+    $result = mysqli_stmt_get_result($ps);
+    return mysqli_fetch_assoc($result);  
+  }
+  return false;
+  }
+  
+  public static function getPlayerById($link, $id)
+  {
+	 if($ps = mysqli_prepare($link, 'SELECT * FROM game_users WHERE id = ?'))
+	 {
+		mysqli_stmt_bind_param($ps, 'd', $id);
+		mysqli_stmt_execute($ps);
+    $result = mysqli_stmt_get_result($ps);
+    return mysqli_fetch_assoc($result);  
+  }
+  return false;
+  }
 
 }
 ?>
