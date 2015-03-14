@@ -5,7 +5,7 @@
       <span class="loginpassword"> Heslo: </span><br />
     </div>
     <div class="inputlogindiv">
-      <input type="text" class="inputedit" name="Login" placeholder="Username"> 
+      <input type="text" class="inputedit" name="LoginName" placeholder="Username"> 
       <input type="password" class="inputedit" name="LoginPassword" placeholder="Password">
     </div>
   </div>          
