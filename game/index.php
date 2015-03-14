@@ -12,6 +12,7 @@
   </head>
   <body>
     <div id="page">
+      <?php if(isset($_SESSION["id"])){$player = db::getPlayerById($link, $_SESSION["id"]); echo sprintf("Logged as %s with id: %d", $player["nick"], $player["id"]);} ?>
       <div id="main">
         <div id="menu">
           <a href="index.php?page=home">Domů</a>
