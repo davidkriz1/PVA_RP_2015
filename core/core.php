@@ -1,4 +1,4 @@
-<?php
+op<?php
 ob_start();
 session_start();
 session_save_path("\tmp");
@@ -65,14 +65,26 @@ if(isset($_POST["register"]))
 
 if (isset($_POST['login']))
 {
+<<<<<<< HEAD
 	if ((!isset($_POST["LoginName"]) || empty($_POST["LoginName"])) || (!isset($_POST["LoginPassword"]) || empty($_POST["LoginPassword"])))
+=======
+	if ((!isset($_POST['LoginName']) || empty($_POST['LoginName'])) || (!isset($_POST['LoginPassword']) || empty($_POST['LoginPassword'])))
+>>>>>>> origin/master
 	{
 		$e = "Nebyla vyplněna všechna data!!";
 		}
 	else
+<<<<<<< HEAD
 	{ 
     
     if  (!db::isPlayerRegistered($link ,$_POST["LoginName"]))
+=======
+	{
+		$data = mysqli_query($link, "SELECT * FROM game_users WHERE nick='".$_POST["LoginName"]."'");
+		$assoc = mysqli_fetch_assoc($data);
+
+		if  ($assoc["nick"]=="")
+>>>>>>> origin/master
 		{
 			$e = "Tento uživatel neexistuje!!";
 		}
@@ -86,9 +98,18 @@ if (isset($_POST['login']))
 			}
 			else
 			{
+<<<<<<< HEAD
+=======
+				$nick = $_POST["LoginName"];
+>>>>>>> origin/master
 				$_SESSION["id"] = $assoc["id"];
 				$lastvisit = $_SERVER["REQUEST_TIME"];
+<<<<<<< HEAD
         echo("<script>window.location = 'game/index.php';</script>");
+=======
+				echo "<meta http-equiv='refresh' content='0';URL='/game/index.php?page=home'>";
+				echo("Byl jsi přihlášen jako " . $nick . " ID:" . $_SESSION['id']);
+>>>>>>> origin/master
 			}
 		}		     
 	}  
