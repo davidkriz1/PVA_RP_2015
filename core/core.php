@@ -1,4 +1,4 @@
-<?php
+op<?php
 ob_start();
 session_start();
 session_save_path("\tmp");
@@ -67,7 +67,7 @@ if (isset($_POST['login']))
 {
 	if ((!isset($_POST['LoginName']) || empty($_POST['LoginName'])) || (!isset($_POST['LoginPassword']) || empty($_POST['LoginPassword'])))
 	{
-		$error = "Nebyla vyplněna všechna data!!";
+		$e = "Nebyla vyplněna všechna data!!";
 		}
 	else
 	{
