@@ -12,7 +12,7 @@
   </head>
   <body>
     <div id="page">
-      <?php if(!isset($_SESSION["id"])){ system::forceRedirect();  /*$player = db::getPlayerById($link, $_SESSION["id"]); echo sprintf("Logged as [%d] %s lastvisit=%d (%s)",$player["id"], $player["nick"], $_SESSION["lastvisit"], date("d.m.Y H:i:s", $_SESSION["lastvisit"])); */}  ?>
+      <?php if(!isset($_SESSION["id"])){ system::forceRedirect(); exit();  /*$player = db::getPlayerById($link, $_SESSION["id"]); echo sprintf("Logged as [%d] %s lastvisit=%d (%s)",$player["id"], $player["nick"], $_SESSION["lastvisit"], date("d.m.Y H:i:s", $_SESSION["lastvisit"])); */}  ?>
       <div id="main">
         <div id="menu">
           <a href="index.php?page=home">Domů</a>
