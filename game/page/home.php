@@ -1,7 +1,17 @@
 <div class="homeplayersummarydiv">
   <div class="homeplayeravatar"></div>
   <div class="homeplayername">
-  TESTNAME
+  <?php
+  $playerdataassoc = playerdatafunction($link);
+  $nick = $playerdataassoc["nick"];      
+  $strength = $playerdataassoc["strength"];
+  $dexterity = $playerdataassoc["dexterity"];
+  $stamina = $playerdataassoc["stamina"];  
+  $gold = $playerdataassoc["gold"]; 
+  $diamond = $playerdataassoc["diamond"];
+  
+  echo($nick);
+  ?>
   </div>
   <div class="homebardiv">
     <img class="homebarimg" alt="150/200" src="../barHP.php?a=150&amp;b=200">
@@ -28,17 +38,26 @@
 
   <div class="attackdefenddiv">
     <div class="attack">
-    Útok: #### - ####
+    Útok: ### - ###
     </div>
-    <div class="defend"
-    >Obrana: ######
+    <div class="defend">
+    Obrana: ######
     </div>
   </div>
   <div class="homestatsdiv">
-  Síla: ####
+  Síla:
+  <?php
+  echo($strength);
+  ?>
   <br />
-  Obratnost: ####
+  Obratnost:
+  <?php
+  echo($dexterity);
+  ?>
   <br />
-  Výdrž: ####
+  Výdrž:
+  <?php  
+  echo($stamina);
+  ?>
   </div>  
 </div>

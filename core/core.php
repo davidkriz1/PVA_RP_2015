@@ -93,7 +93,7 @@ if (isset($_POST['login']))
 				$nick = $_POST["LoginName"];
 				$_SESSION["id"] = $assoc["id"];
 				$_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
-        			echo("<script>window.location = 'game/index.php';</script>");
+        echo("<script>window.location = 'game/index.php';</script>");
         			exit();
 			}
 		}		     
@@ -102,43 +102,90 @@ if (isset($_POST['login']))
 
 if (isset($_POST['logout']))
 {
-	delSession($link);
+  delSession($link);
 } 
 
   // Okamžité odhlášení
 function delSession()
 {
-	if(!empty($_SESSION))
-	{      
-		$_SESSION = array();
-		echo("<script>window.location = '../index.php';</script>");
-	}
+  if(!empty($_SESSION))
+  {      
+    $_SESSION = array();
+    echo("<script>window.location = '../index.php';</script>");
+  }
 }
 
 // Odhlášení při neaktivitě
- if(empty($_SESSION["id"]))
+if(empty($_SESSION["id"]))
+{
+  $_SESSION = array();
+  session_destroy();
+}
+else
+{
+  if($_SESSION["lastvisit"] + 7200 <= time())
   {
-    $_SESSION = array();
-    session_destroy();
+    delSession();
   }
   else
   {
-    if($_SESSION["lastvisit"] + 7200 <= time())
+    if($_SESSION["lastvisit"] + 3* 300 <= time())
     {
       delSession();
     }
     else
     {
-      if($_SESSION["lastvisit"] + 3* 300 <= time())
-      {
-        delSession();
-      }
-      else
-      {
-        $_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
-        mysqli_query($link, "UPDATE uzivatele SET lastvisit = '" . time() . "' WHERE id = " . $_SESSION['id'] . "");
-      }
+      $_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
+      mysqli_query($link, "UPDATE uzivatele SET lastvisit = '" . time() . "' WHERE id = " . $_SESSION['id'] . "");
     }
   }
+}
 
+// funkce pro tréning ###############################################################################################
+// funkce pro tréning ###############################################################################################
+// funkce pro tréning ###############################################################################################
+
+if (isset($_POST['trainingstrength']))
+{
+	trainingstrength($link);
+}
+
+function trainingstrength()
+{
+  $data = mysqli_query($link, "SELECT * FROM uzivatele WHERE id=" . $_SESSION['id'] . "");
+  $assoc = mysqli_fetch_assoc($data);
+    
+  $strength = $assoc["strength"];
+    
+  $gold = $assoc["gold"]; 
+  $diamond = $assoc["diamond"];
+    
+  if($gold > 1)
+  {          
+ 
+    
+    $strength = $strength + 1;
+    mysqli_query($link, "UPDATE uzivatele SET strength = '" . $strength . "' WHERE id = " . $_SESSION['id'] . "");
+    
+    $gold = $gold - 1;
+    mysqli_query($link, "UPDATE uzivatele SET gold = '" . $gold . "' WHERE id = " . $_SESSION['id'] . "");
+  }
+}
+
+if (isset($_POST['trainingstdexterity']))
+{
+
+}
+
+if (isset($_POST['trainingstamina']))
+{
+
+}
+
+function playerdatafunction($link)
+{
+	$data = mysqli_query($link, "SELECT * FROM uzivatele WHERE id=" . $_SESSION['id'] . "");
+	$playerdata = mysqli_fetch_assoc($data);
+	return $playerdata;
+}
 ?>

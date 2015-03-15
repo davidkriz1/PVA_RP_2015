@@ -1,5 +1,6 @@
 <div class="trainingheaddiv">
 </div>
+<form action="" method="post" autocomplete="off">
 <div class="trainingdiv">
   <div class="trainingtypediv">
     <div class="trainingtypedescdiv">
@@ -19,8 +20,8 @@
         </span>
     </div>
   </div>
-  <div class="trainingbuttondiv">
-    <div title="Trénovat" class="trainingbutton"></div>
+  <div class="trainingbuttondiv">  
+    <input type="submit" name="trainingstrength" class="trainingbutton" value="">
   </div>
 </div>
 <div class="trainingdiv">
@@ -42,8 +43,8 @@
         </span>
     </div>
   </div>
-  <div class="trainingbuttondiv">
-    <div title="Trénovat" class="trainingbutton"></div>
+  <div class="trainingbuttondiv"> 
+    <input type="submit" name="trainingstdexterity" class="trainingbutton" value="">
   </div>
 </div>
 <div class="trainingdiv">
@@ -65,7 +66,8 @@
         </span>
     </div>
   </div>
-  <div class="trainingbuttondiv">
-    <div title="Trénovat" class="trainingbutton"></div>
+  <div class="trainingbuttondiv">  
+    <input type="submit" name="trainingstamina" class="trainingbutton" value="">
   </div>
 </div>
+</form>

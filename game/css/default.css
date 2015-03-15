@@ -378,6 +378,14 @@ body
   height: 30px;
 }
 
+#content .trainingbuttondiv
+{
+  background-color: rgba(0, 0, 0, 0.1);
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+
 #content .trainingbutton
 {
   margin: 10px;
@@ -386,14 +394,7 @@ body
   height: 30px;
   width: 30px;
   cursor: pointer;
-}
-
-#content .trainingbuttondiv
-{
-  background-color: rgba(0, 0, 0, 0.1);
-  float: left;
-  height: 50px;
-  width: 50px;
+  border: none;
 }
 
 #content .trainingbutton:hover
@@ -404,6 +405,7 @@ body
   width: 30px;
   height: 30px;
   background: url(http://home.spsostrov.cz/~krizda/Game/game/css/images/up_hover.png);
+  border: none;
 }
 
 /* ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### ################# DAVVVE - ZATÍM ############### */
