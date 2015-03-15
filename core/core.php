@@ -93,7 +93,8 @@ if (isset($_POST['login']))
 				$nick = $_POST["LoginName"];
 				$_SESSION["id"] = $assoc["id"];
 				$_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
-        echo("<script>window.location = 'game/index.php';</script>");
+        			echo("<script>window.location = 'game/index.php';</script>");
+        			exit();
 			}
 		}		     
 	}  
