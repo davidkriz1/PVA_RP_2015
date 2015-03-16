@@ -223,6 +223,62 @@ function trainingstamina($link)
   }
 }
 
+if (isset($_POST['furiouswolf']))
+{
+  $playerdataassoc = playerdatafunction($link);
+  $playerlevel = $playerdataassoc["level"];  
+  $playerstrength = $playerdataassoc["strength"];
+  $playerdexterity = $playerdataassoc["dexterity"];
+  $playerstamina = $playerdataassoc["stamina"];  
+  
+  $string = $playerweapon;
+  $arr = explode('-', $string);
+  $playerweapon = rand((int)$arr[0],(int)$arr[1]);
+
+  
+  unset($string);
+  unset($arr);
+
+  $playerhp = ($playerlevel * 15) + 50;
+
+  $Pbonusposkozeni = 1 + ($Pbonusposkozeni / 100);
+  $Pbonusobrany = 1 + ($Pbonusobrany / 100);
+
+  
+  $playerdamage = ($playerweapon + $playerstrength) * $Pbonusposkozeni;
+  $playerdefend = ($Phodnotaobrany + $playerdexterity) * $Pbonusobrany;
+  $playerhp = $playerhp + $playerstamina;
+  
+  //#############################
+  
+  $NPCdamage = 30;
+  $NPCdefend = 50;
+  $NPChp = 1;
+
+  $finalplayerdamage = $playerdamage - $NPCdefend;
+  $finalNPCdamage = $NPCdamage - $playerdefend;
+
+  
+  $win1 = $finalplayerdamage - $NPChp;
+  $win2 = $finalNPCdamage - $playerhp;  
+  
+  if($win1 > $win2)
+  {
+    echo("Vyhrál jsi!<br /><br />");
+  }
+  else
+  {
+    if($win1 == $win2)
+    {
+      echo("Remíza!<br /><br />");
+    }
+    else
+    {
+      echo("Prohrál jsi!<br /><br />");
+    }
+  }   
+}
+
 function playerdatafunction($link)
 {
 	$data = mysqli_query($link, "SELECT * FROM game_users WHERE id=" . $_SESSION['id'] . "");

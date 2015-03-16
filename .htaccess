@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond  %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_URI} !\.(jpg|png|css|js|php)$
+RewriteRule (.*) index.php?page=$1 [QSA,PT]
