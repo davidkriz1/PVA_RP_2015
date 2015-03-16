@@ -136,7 +136,7 @@ else
     else
     {
       $_SESSION["lastvisit"] = $_SERVER["REQUEST_TIME"];
-      mysqli_query($link, "UPDATE uzivatele SET lastvisit = '" . time() . "' WHERE id = " . $_SESSION['id'] . "");
+      mysqli_query($link, "UPDATE game_users SET lastvisit = '" . time() . "' WHERE id = " . $_SESSION['id'] . "");
     }
   }
 }
@@ -152,7 +152,7 @@ if (isset($_POST['trainingstrength']))
 
 function trainingstrength()
 {
-  $data = mysqli_query($link, "SELECT * FROM uzivatele WHERE id=" . $_SESSION['id'] . "");
+  $data = mysqli_query($link, "SELECT * FROM game_users WHERE id=" . $_SESSION['id'] . "");
   $assoc = mysqli_fetch_assoc($data);
     
   $strength = $assoc["strength"];
@@ -165,10 +165,10 @@ function trainingstrength()
  
     
     $strength = $strength + 1;
-    mysqli_query($link, "UPDATE uzivatele SET strength = '" . $strength . "' WHERE id = " . $_SESSION['id'] . "");
+    mysqli_query($link, "UPDATE game_users SET strength = '" . $strength . "' WHERE id = " . $_SESSION['id'] . "");
     
     $gold = $gold - 1;
-    mysqli_query($link, "UPDATE uzivatele SET gold = '" . $gold . "' WHERE id = " . $_SESSION['id'] . "");
+    mysqli_query($link, "UPDATE game_users SET gold = '" . $gold . "' WHERE id = " . $_SESSION['id'] . "");
   }
 }
 
@@ -184,7 +184,7 @@ if (isset($_POST['trainingstamina']))
 
 function playerdatafunction($link)
 {
-	$data = mysqli_query($link, "SELECT * FROM uzivatele WHERE id=" . $_SESSION['id'] . "");
+	$data = mysqli_query($link, "SELECT * FROM game_users WHERE id=" . $_SESSION['id'] . "");
 	$playerdata = mysqli_fetch_assoc($data);
 	return $playerdata;
 }
