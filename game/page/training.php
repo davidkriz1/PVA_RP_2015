@@ -5,7 +5,19 @@
   <div class="trainingtypediv">
     <div class="trainingtypedescdiv">
       <div class="trainingtypetitlediv">
-    Tvá aktuální síla: ####
+        Tvá aktuální síla:
+        <?php
+        $playerdataassoc = playerdatafunction($link);     
+        $strength = $playerdataassoc["strength"];
+        $dexterity = $playerdataassoc["dexterity"];
+        $stamina = $playerdataassoc["stamina"];
+
+        $coststrength = $strength * 30;
+        $costdexterity = $dexterity * 30;      
+        $coststamina = $stamina * 30;
+      
+        echo($strength);
+        ?>
       </div>
       <div class="trainingtypedescriptiondiv">
         Síla zvyšuje vaše poškození způsobené zbraněmi
@@ -16,7 +28,9 @@
         <img src="http://home.spsostrov.cz/~krizda/php/Images/gold.png" class="currencyimage">
       </div>
         <span class="goldcurrencyvaluespan">
-          ####
+          <?php
+          echo($coststrength);
+          ?>
         </span>
     </div>
   </div>
@@ -28,7 +42,10 @@
   <div class="trainingtypediv">
     <div class="trainingtypedescdiv">
       <div class="trainingtypetitlediv">
-    Tvá aktuální obratnost: ####
+        Tvá aktuální obratnost:
+        <?php
+        echo($dexterity);
+        ?>
       </div>
       <div class="trainingtypedescriptiondiv">
         Obratnost zvyšuje vaši obranu
@@ -39,7 +56,9 @@
         <img src="http://home.spsostrov.cz/~krizda/php/Images/gold.png" class="currencyimage">
       </div>
         <span class="goldcurrencyvaluespan">
-          ####
+        <?php
+        echo($costdexterity);      
+        ?>
         </span>
     </div>
   </div>
@@ -51,7 +70,10 @@
   <div class="trainingtypediv">
     <div class="trainingtypedescdiv">
       <div class="trainingtypetitlediv">
-    Tvá aktuální odolnost: ####
+      Tvá aktuální odolnost:
+      <?php
+      echo($stamina);
+      ?>
       </div>
       <div class="trainingtypedescriptiondiv">
         Odolnost zvyšuje vaše body života
@@ -62,7 +84,9 @@
         <img src="http://home.spsostrov.cz/~krizda/php/Images/gold.png" class="currencyimage">
       </div>
         <span class="goldcurrencyvaluespan">
-          ####
+          <?php
+          echo($coststamina);
+          ?>
         </span>
     </div>
   </div>

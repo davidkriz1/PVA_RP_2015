@@ -150,36 +150,77 @@ if (isset($_POST['trainingstrength']))
 	trainingstrength($link);
 }
 
-function trainingstrength()
+function trainingstrength($link)
 {
   $data = mysqli_query($link, "SELECT * FROM game_users WHERE id=" . $_SESSION['id'] . "");
   $assoc = mysqli_fetch_assoc($data);
     
   $strength = $assoc["strength"];
+  $cost = $strength * 30;
     
   $gold = $assoc["gold"]; 
   $diamond = $assoc["diamond"];
     
-  if($gold > 1)
-  {          
- 
-    
+  if($gold > $cost || $gold = $cost)
+  {              
     $strength = $strength + 1;
     mysqli_query($link, "UPDATE game_users SET strength = '" . $strength . "' WHERE id = " . $_SESSION['id'] . "");
     
-    $gold = $gold - 1;
+    $gold = $gold - $cost;
     mysqli_query($link, "UPDATE game_users SET gold = '" . $gold . "' WHERE id = " . $_SESSION['id'] . "");
   }
 }
 
 if (isset($_POST['trainingstdexterity']))
 {
+	trainingdexterity($link);
+}
 
+function trainingdexterity($link)
+{
+  $data = mysqli_query($link, "SELECT * FROM game_users WHERE id=" . $_SESSION['id'] . "");
+  $assoc = mysqli_fetch_assoc($data);
+    
+  $dexterity = $assoc["dexterity"];
+  $cost = $dexterity * 30;
+    
+  $gold = $assoc["gold"]; 
+  $diamond = $assoc["diamond"];
+    
+  if($gold > $cost || $gold = $cost)
+  {              
+    $dexterity = $dexterity + 1;
+    mysqli_query($link, "UPDATE game_users SET dexterity = '" . $dexterity . "' WHERE id = " . $_SESSION['id'] . "");
+    
+    $gold = $gold - $cost;
+    mysqli_query($link, "UPDATE game_users SET gold = '" . $gold . "' WHERE id = " . $_SESSION['id'] . "");
+  }
 }
 
 if (isset($_POST['trainingstamina']))
 {
+	trainingstamina($link);
+}
 
+function trainingstamina($link)
+{
+  $data = mysqli_query($link, "SELECT * FROM game_users WHERE id=" . $_SESSION['id'] . "");
+  $assoc = mysqli_fetch_assoc($data);
+    
+  $stamina = $assoc["stamina"];
+  $cost = $stamina * 30;
+
+  $gold = $assoc["gold"]; 
+  $diamond = $assoc["diamond"];
+    
+  if($gold > $cost || $gold = $cost)
+  {              
+    $stamina = $stamina + 1;
+    mysqli_query($link, "UPDATE game_users SET stamina = '" . $stamina . "' WHERE id = " . $_SESSION['id'] . "");
+    
+    $gold = $gold - $cost;
+    mysqli_query($link, "UPDATE game_users SET gold = '" . $gold . "' WHERE id = " . $_SESSION['id'] . "");
+  }
 }
 
 function playerdatafunction($link)

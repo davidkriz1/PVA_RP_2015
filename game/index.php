@@ -25,7 +25,39 @@
           <a href="index.php?action=logout">Odhlásit</a>
         </div>
         <div id="bodydiv">
-          <div class="informationdiv"></div>
+          <div class="informationdiv">
+            <?php
+            $playerdataassoc = playerdatafunction($link);
+            $nick = $playerdataassoc["nick"];      
+            $strength = $playerdataassoc["strength"];
+            $dexterity = $playerdataassoc["dexterity"];
+            $stamina = $playerdataassoc["stamina"];  
+            $gold = $playerdataassoc["gold"]; 
+            $diamond = $playerdataassoc["diamond"];
+            ?>
+            <div class="currencydiv">
+              <div class="currencyimagediv">
+                <img src="http://home.spsostrov.cz/~krizda/php/Images/gold.png" class="currencyimage">
+              </div>
+              <span class="goldcurrencyvaluespan">
+                <?php  
+                echo($gold);
+                ?>
+              </span>
+            </div>
+            <div class="currencydiv">
+              <div class="currencyimagediv">
+                <img src="http://home.spsostrov.cz/~krizda/php/Images/reddiamond.png" class="currencyimage">
+              </div>
+              <span class="diamondcurrencyvaluespan">
+                <?php  
+                echo($diamond);
+                ?>
+              </span>
+            </div>
+            <img class="homebarimg" alt="150/200" src="../barHP.php?a=195&amp;b=200">
+            <img class="homebarimg" alt="150/200" src="../barXP.php?a=50&amp;b=200">
+          </div>
           <div id="content">
             <?php
             $page = empty($_GET["page"]) || !isset($_GET["page"]) ? "home" : system::osetri_get($_GET["page"]);

@@ -520,3 +520,42 @@ body
   width: 350px;
   height: 50px;
 }
+
+
+
+.informationdiv .currencydiv
+{
+  line-height: 45px;
+  height: 40px;    
+  width: 190px;    
+  float: right;    
+  color: gold;
+  text-align: start;    
+  margin: 5px;
+}
+
+.informationdiv .currencyimagediv
+{
+  margin: 1px 10px 0px 0px;    
+  width: 50px;
+  float: left;    
+  height: 40px;
+}
+
+.informationdiv .currencyimage
+{
+  width: 50px;    
+  height: 40px;
+}
+
+.informationdiv .goldcurrencyvaluespan
+{
+  line-height: 45px;
+  color: gold;
+}
+
+.informationdiv .diamondcurrencyvaluespan
+{
+  line-height: 45px;
+  color: #FF3B3B;
+}
