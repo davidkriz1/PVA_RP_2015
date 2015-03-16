@@ -161,7 +161,7 @@ function trainingstrength($link)
   $gold = $assoc["gold"]; 
   $diamond = $assoc["diamond"];
     
-  if($gold > $cost || $gold = $cost)
+  if($gold > $cost || $gold == $cost)
   {              
     $strength = $strength + 1;
     mysqli_query($link, "UPDATE game_users SET strength = '" . $strength . "' WHERE id = " . $_SESSION['id'] . "");
@@ -187,7 +187,7 @@ function trainingdexterity($link)
   $gold = $assoc["gold"]; 
   $diamond = $assoc["diamond"];
     
-  if($gold > $cost || $gold = $cost)
+  if($gold > $cost || $gold == $cost)
   {              
     $dexterity = $dexterity + 1;
     mysqli_query($link, "UPDATE game_users SET dexterity = '" . $dexterity . "' WHERE id = " . $_SESSION['id'] . "");
@@ -213,7 +213,7 @@ function trainingstamina($link)
   $gold = $assoc["gold"]; 
   $diamond = $assoc["diamond"];
     
-  if($gold > $cost || $gold = $cost)
+  if($gold > $cost || $gold == $cost)
   {              
     $stamina = $stamina + 1;
     mysqli_query($link, "UPDATE game_users SET stamina = '" . $stamina . "' WHERE id = " . $_SESSION['id'] . "");
