@@ -267,20 +267,31 @@ if (isset($_POST['furiouswolf']))
   $win2 = $finalNPCdamage - $playerhp;  
   
   if($win1 > $win2)
-  {
-    echo("Vyhrál jsi!<br /><br />");
+  {    
+    $cookie_name = "result";
+    $cookie_value = "Vyhrál jsi!";
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
   }
   else
   {
     if($win1 == $win2)
     {
-      echo("Remíza!<br /><br />");
+      $cookie_name = "result";
+      $cookie_value = "Remíza!";
+      setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
     }
     else
     {
-      echo("Prohrál jsi!<br /><br />");
+      $cookie_name = "result";
+      $cookie_value = "Prohrál jsi!";
+      setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
     }
-  }   
+  } 
+  $cookie_name = "NPCname";
+  $cookie_value = "Zuřivý vlk";
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
+  
+  echo("<script>window.location = 'index.php?page=result';</script>");   
 }
 
 function playerdatafunction($link)
