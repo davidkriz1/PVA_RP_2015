@@ -24,11 +24,22 @@
         <?php
         if(isset($e) && !empty($e))
         {
+          if($ok = 1)
+          {
+          ?>
+        <div id="errordivok" class="Aligner">
+          <?php echo $e; ?>
+        </div> 
+          <?php
+          }
+          else
+          {
         ?>
         <div id="errordiv" class="Aligner">
-          <?php echo $e;?>
+          <?php echo $e; ?>
         </div>
         <?php
+          }
         }
         ?>
         <div id="content" class="Aligner">

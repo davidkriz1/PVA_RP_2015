@@ -28,12 +28,24 @@
           <div class="informationdiv">
             <?php
             $playerdataassoc = playerdatafunction($link);
-            $nick = $playerdataassoc["nick"];      
+            $nick = $playerdataassoc["nick"];
+            $level = $playerdataassoc["level"];
+            $HPnow = $playerdataassoc["HP"];
+            $XPnow = $playerdataassoc["XP"];      
             $strength = $playerdataassoc["strength"];
             $dexterity = $playerdataassoc["dexterity"];
             $stamina = $playerdataassoc["stamina"];  
             $gold = $playerdataassoc["gold"]; 
             $diamond = $playerdataassoc["diamond"];
+            
+            $HP = ($level * 15) + 50 + ($stamina * 5);
+            $XP = ($level * 5) + 10;
+            
+            if($XPnow > $XP || $XPnow == $XP)
+            {
+                $level = $level + 1;
+                mysqli_query($link, "UPDATE game_users SET level = '" . $level . "' WHERE id = " . $_SESSION['id'] . "");
+            }
             ?>
             <div class="currencydiv">
               <div class="currencyimagediv">
@@ -55,8 +67,8 @@
                 ?>
               </span>
             </div>
-            <img class="homebarimg" alt="150/200" src="../barHP.php?a=195&amp;b=200">
-            <img class="homebarimg" alt="150/200" src="../barXP.php?a=50&amp;b=200">
+            <img class="homebarimg" alt="<?php echo($HPnow); ?>/<?php echo($HP); ?>" src="../barHP.php?a=<?php echo($HPnow); ?>&amp;b=<?php echo($HP); ?>">
+            <img class="homebarimg" alt="<?php echo($XPnow); ?>/<?php echo($XP); ?>" src="../barXP.php?a=<?php echo($XPnow); ?>&amp;b=<?php echo($XP); ?>">
           </div>
           <div id="content">
             <?php

@@ -54,6 +54,7 @@ if(isset($_POST["register"]))
               mysqli_stmt_execute($ps);
             
               $e = "Účet byl úspešně zaregistrován";
+              $ok = 1;
             
               unset($RegisterEmail);
               unset($RegisterLogin);
