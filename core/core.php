@@ -1,7 +1,10 @@
 <?php
 ob_start();
 session_start();
-session_save_path("\tmp");
+
+# Error reporting
+//error_reporting(0);
+
 
 require_once("config.php");
 
