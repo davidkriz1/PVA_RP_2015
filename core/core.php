@@ -229,52 +229,110 @@ function trainingstamina($link)
 
 if (isset($_POST['furiouswolf']))
 {
+
   $playerdataassoc = playerdatafunction($link);
   $playerlevel = $playerdataassoc["level"];  
   $playerstrength = $playerdataassoc["strength"];
   $playerdexterity = $playerdataassoc["dexterity"];
   $playerstamina = $playerdataassoc["stamina"];  
+  $playerhpnow = $playerdataassoc["HP"];
   
   //$playerstring = $playerweapon;
-  $playerstring = 1-3;  
-  $arr = explode('-', $playerstring);
-  $playerweapon = rand((int)$arr[0],(int)$arr[1]);
+  $playerstring = 1-2;  
+  $arr1 = explode('-', $playerstring);
+  $playerweapon = rand((int)$arr1[0],(int)$arr1[1]);
 
   //$NPCstring = $NPCweapon;
-  $NPCstring = 5-8;  
-  $arr = explode('-', $NPCstring);
-  $NPCweapon = rand((int)$arr[0],(int)$arr[1]);
+  $NPCstring = 2-3;  
+  $arr2 = explode('-', $NPCstring);
+  $NPCweapon = rand((int)$arr2[0],(int)$arr2[1]);
   
-  unset($NPCstring);
-  unset($arr);
+  unset($playerstring);
+  unset($NPCstring);  
+  unset($arr1);
+  unset($arr2);
+  // nutno upravit
+  $playerbonusposkozeni = 1;
+  $playerbonusobrany = 1;
+  $playerhodnotaobrany = 1;
 
-  //statistiky NPC
+  $NPCbonusposkozeni = 1;
+  $NPCbonusobrany = 1;
+  $NPChodnotaobrany = 1;
+  //statistiky hráče
 
-  $playerhp = ($playerlevel * 15) + 50;
+  //$playerhp = ($playerlevel * 15) + 50;
 
   $playerbonusposkozeni = 1 + ($playerbonusposkozeni / 100);
   $playerbonusobrany = 1 + ($playerbonusobrany / 100);
 
   $playerdamage = ($playerweapon + $playerstrength) * $playerbonusposkozeni;
-  $playerdefend = ($Phodnotaobrany + $playerdexterity) * $playerbonusobrany;
-  $playerhp = $playerhp + $playerstamina;
+  $playerdefend = ($playerhodnotaobrany + $playerdexterity) * $playerbonusobrany;
   
   //statistiky NPC
+  $NPCstrength = 22;
+  $NPCdexterity = 14;
+  $NPCstamina = 10;
   
-  $NPCbonusposkozeni = 1 + ($NPCbonusposkozeni / 100);
-  $NPCbonusobrany = 1 + ($NPCbonusobrany / 100);
+  //$NPCbonusposkozeni = 1 + ($NPCbonusposkozeni / 100);
+  //$NPCbonusobrany = 1 + ($NPCbonusobrany / 100);
   
-  $NPCdamage = ($NPCweapon + 5) * $NPCbonusposkozeni;;
-  $NPCdefend = ($NPChodnotaobrany + 8) * $NPCbonusobrany;
-  $NPChp = 50 + 10;
+  $NPCdamage = ($NPCweapon + $NPCstrength) * $NPCbonusposkozeni;
+  $NPCdefend = ($NPChodnotaobrany + $NPCdexterity) * $NPCbonusobrany;
+  $NPChp = 50 + $NPCstamina;
 
   $finalplayerdamage = $playerdamage - $NPCdefend;
   $finalNPCdamage = $NPCdamage - $playerdefend;
 
-  $win1 = $finalplayerdamage - $NPChp;
-  $win2 = $finalNPCdamage - $playerhp;  
-  
+  $win1 = $NPChp / $finalplayerdamage;
+  $win2 = $playerhpnow / $finalNPCdamage;  
+
   if($win1 > $win2)
+  {
+    $NPChpnow = $NPChp - ($win2 * $finalplayerdamage);
+    $playerhpnow = $playerhpnow - ($win2 * $finalNPCdamage);   
+  }
+  else
+  {
+    $NPChpnow = $NPChp - ($win1 * $finalplayerdamage);
+    $playerhpnow = $playerhpnow - ($win1 * $finalNPCdamage);  
+  }
+
+  if($NPChpnow < 0)
+  {
+    $NPChpnow = 0;  
+  }
+
+  // výpočet pro hráče
+  if($playerhpnow < 0)
+  {
+    $playerhpnow = 0;  
+  }
+
+  mysqli_query($link, "UPDATE game_users SET HP = '" . $playerhpnow . "' WHERE id = " . $_SESSION['id'] . "");
+
+  // nastavení cookies - statistiky NPC
+  $cookie_name = "NPCstrength";
+  $cookie_value = $NPCstrength;
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
+  
+  $cookie_name = "NPCdexterity";
+  $cookie_value = $NPCdexterity;
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
+      
+  $cookie_name = "NPCstamina";
+  $cookie_value = $NPCstamina;
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
+
+  $cookie_name = "NPChp";
+  $cookie_value = $NPChp;
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
+
+  $cookie_name = "NPChpnow";
+  $cookie_value = $NPChpnow;
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
+  
+  if($win1 < $win2)
   {    
     $cookie_name = "result";
     $cookie_value = "Vyhrál jsi!";
@@ -299,7 +357,7 @@ if (isset($_POST['furiouswolf']))
   $cookie_value = "Zuřivý vlk";
   setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
   
-  echo("<script>window.location = 'index.php?page=result';</script>");   
+   echo("<script>window.location = 'index.php?page=result';</script>");  
 }
 
 function playerdatafunction($link)

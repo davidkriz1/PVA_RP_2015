@@ -83,8 +83,11 @@
   ?>
   </div>
   <div class="homebardiv">
-    <img class="homebarimg" alt="<?php echo($HPnow); ?>/<?php echo($HP); ?>" src="../barHP.php?a=<?php echo($HPnow); ?>&amp;b=<?php echo($HP); ?>">
-    <img class="homebarimg" alt="<?php echo($XPnow); ?>/<?php echo($XP); ?>" src="../barXP.php?a=<?php echo($XPnow); ?>&amp;b=<?php echo($XP); ?>">
+    <img class="homebarimg" alt="<?php echo($_COOKIE["NPChpnow"]); ?>/<?php echo($_COOKIE["NPChp"]); ?>" src="../barHP.php?a=<?php echo($_COOKIE["NPChpnow"]); ?>&amp;b=<?php echo($_COOKIE["NPChp"]); ?>">
+    <?php
+    setcookie("NPChp", "", time() - 3600);
+    setcookie("NPChpnow", "", time() - 3600);
+    ?>
   </div>
   <div class="homespelldiv">
     <div class="test2"></div>
@@ -116,17 +119,20 @@
   <div class="homestatsdiv">
   Síla:
   <?php
-  echo($strength);
+  echo($_COOKIE["NPCstrength"]);
+  setcookie("NPCstrength", "", time() - 3600);
   ?>
   <br />
   Obratnost:
   <?php
-  echo($dexterity);
+  echo($_COOKIE["NPCdexterity"]);
+  setcookie("NPCdexterity", "", time() - 3600);
   ?>
   <br />
   Výdrž:
   <?php  
-  echo($stamina);
+  echo($_COOKIE["NPCstamina"]);
+  setcookie("NPCstamina", "", time() - 3600);
   ?>
   </div>  
 </div>
