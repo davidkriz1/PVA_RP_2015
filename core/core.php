@@ -235,34 +235,42 @@ if (isset($_POST['furiouswolf']))
   $playerdexterity = $playerdataassoc["dexterity"];
   $playerstamina = $playerdataassoc["stamina"];  
   
-  $string = $playerweapon;
-  $arr = explode('-', $string);
+  //$playerstring = $playerweapon;
+  $playerstring = 1-3;  
+  $arr = explode('-', $playerstring);
   $playerweapon = rand((int)$arr[0],(int)$arr[1]);
 
+  //$NPCstring = $NPCweapon;
+  $NPCstring = 5-8;  
+  $arr = explode('-', $NPCstring);
+  $NPCweapon = rand((int)$arr[0],(int)$arr[1]);
   
-  unset($string);
+  unset($NPCstring);
   unset($arr);
+
+  //statistiky NPC
 
   $playerhp = ($playerlevel * 15) + 50;
 
-  $Pbonusposkozeni = 1 + ($Pbonusposkozeni / 100);
-  $Pbonusobrany = 1 + ($Pbonusobrany / 100);
+  $playerbonusposkozeni = 1 + ($playerbonusposkozeni / 100);
+  $playerbonusobrany = 1 + ($playerbonusobrany / 100);
 
-  
-  $playerdamage = ($playerweapon + $playerstrength) * $Pbonusposkozeni;
-  $playerdefend = ($Phodnotaobrany + $playerdexterity) * $Pbonusobrany;
+  $playerdamage = ($playerweapon + $playerstrength) * $playerbonusposkozeni;
+  $playerdefend = ($Phodnotaobrany + $playerdexterity) * $playerbonusobrany;
   $playerhp = $playerhp + $playerstamina;
   
-  //#############################
+  //statistiky NPC
   
-  $NPCdamage = 30;
-  $NPCdefend = 50;
-  $NPChp = 1;
+  $NPCbonusposkozeni = 1 + ($NPCbonusposkozeni / 100);
+  $NPCbonusobrany = 1 + ($NPCbonusobrany / 100);
+  
+  $NPCdamage = ($NPCweapon + 5) * $NPCbonusposkozeni;;
+  $NPCdefend = ($NPChodnotaobrany + 8) * $NPCbonusobrany;
+  $NPChp = 50 + 10;
 
   $finalplayerdamage = $playerdamage - $NPCdefend;
   $finalNPCdamage = $NPCdamage - $playerdefend;
 
-  
   $win1 = $finalplayerdamage - $NPChp;
   $win2 = $finalNPCdamage - $playerhp;  
   
