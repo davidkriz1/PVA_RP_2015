@@ -10,6 +10,7 @@ require_once("config.php");
 
 if(isset($_POST["register"]))
 {
+  $ok = 0;
   foreach($_POST as $k=>$v)
   {
     $$k = system::osetri($v);
@@ -69,6 +70,7 @@ if(isset($_POST["register"]))
 
 if (isset($_POST['login']))
 {
+  $ok = 0;
   foreach($_POST as $k=>$v)
   {
     $_POST[$k] = system::osetri($v);
