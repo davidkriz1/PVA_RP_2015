@@ -24,7 +24,7 @@
         <?php
         if(isset($e) && !empty($e))
         {
-          if($ok = 1)
+          if($ok == 1)
           {
           ?>
         <div id="errordivok" class="Aligner">
