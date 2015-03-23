@@ -240,12 +240,12 @@ if (isset($_POST['furiouswolf']))
   $playerhpnow = $playerdataassoc["HP"];
   
   //$playerstring = $playerweapon;
-  $playerstring = 1-2;  
+  $playerstring = "1-2";  
   $arr1 = explode('-', $playerstring);
   $playerweapon = rand((int)$arr1[0],(int)$arr1[1]);
 
   //$NPCstring = $NPCweapon;
-  $NPCstring = 2-3;  
+  $NPCstring = "2-3"";  
   $arr2 = explode('-', $NPCstring);
   $NPCweapon = rand((int)$arr2[0],(int)$arr2[1]);
   
