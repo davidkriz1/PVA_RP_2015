@@ -245,7 +245,7 @@ if (isset($_POST['furiouswolf']))
   $playerweapon = rand((int)$arr1[0],(int)$arr1[1]);
 
   //$NPCstring = $NPCweapon;
-  $NPCstring = "2-3"";  
+  $NPCstring = "2-3";  
   $arr2 = explode('-', $NPCstring);
   $NPCweapon = rand((int)$arr2[0],(int)$arr2[1]);
   
