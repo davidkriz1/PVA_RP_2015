@@ -1,6 +1,6 @@
 <?php
 ob_start();
-ini_set('session.save_path',  '/tmp');
+//ini_set('session.save_path',  '/tmp');
 session_start();
 
 # Error reporting
@@ -8,7 +8,7 @@ session_start();
 
 
 require_once("config.php");
-
+                  
 if(isset($_POST["register"]))
 {
   $ok = 0;
@@ -126,7 +126,6 @@ function delSession()
 if(empty($_SESSION["id"]))
 {
   $_SESSION = array();
-  session_destroy();
 }
 else
 {
@@ -285,10 +284,19 @@ if (isset($_POST['furiouswolf']))
   $NPChp = 50 + $NPCstamina;
 
   $finalplayerdamage = $playerdamage - $NPCdefend;
+  if($finalplayerdamage < 0)
+  {
+    $finalplayerdamage = 0;  
+  }
+  
   $finalNPCdamage = $NPCdamage - $playerdefend;
+  if($finalNPCdamage < 0)
+  {
+    $finalNPCdamage = 0;  
+  }
 
-  $win1 = $NPChp / $finalplayerdamage;
-  $win2 = $playerhpnow / $finalNPCdamage;  
+  $win1 = $finalplayerdamage == 0 ? 0 :  $NPChp / $finalplayerdamage;
+  $win2 = $finalNPCdamage == 0 ? 0 : $playerhpnow / $finalNPCdamage;  
 
   if($win1 > $win2)
   {
@@ -360,7 +368,9 @@ if (isset($_POST['furiouswolf']))
   $cookie_value = "Zuřivý vlk";
   setcookie($cookie_name, $cookie_value, time() + (86400 * 1), "/"); // 86400 = 1 day
   
-   echo("<script>window.location = 'index.php?page=result';</script>");  
+    $arr = get_defined_vars();
+    print_r($arr);
+  //echo("<script>window.location = 'index.php?page=result';</script>");  
 }
 
 function playerdatafunction($link)
